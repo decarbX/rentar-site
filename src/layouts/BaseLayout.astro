@@ -1,6 +1,8 @@
 ---
 // src/layouts/BaseLayout.astro
+import '../styles/global.css';
 const { title, description } = Astro.props;
+const siteUrl = 'https://rentar.net';
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +11,47 @@ const { title, description } = Astro.props;
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title}</title>
   <meta name="description" content={description}>
-  <link rel="stylesheet" href="/src/styles/global.css">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href={siteUrl}>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Rentar Environmental Solutions">
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:url" content={siteUrl}>
+  <meta property="og:image" content={`${siteUrl}/images/rentar-og.jpg`}>
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content={title}>
+  <meta name="twitter:description" content={description}>
+  <meta name="twitter:image" content={`${siteUrl}/images/rentar-og.jpg`}>
+
+  <!-- Structured Data: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Rentar Environmental Solutions, Inc.",
+    "url": "https://rentar.net",
+    "description": "Exclusive worldwide commercial rights holder for the Rentar Fuel Catalyst. Patented fuel catalyst technology deployed across mining, marine, agriculture, oil and gas, power generation, and heavy transport.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "515 N. Flagler Drive, Suite 350",
+      "addressLocality": "West Palm Beach",
+      "addressRegion": "FL",
+      "postalCode": "33401",
+      "addressCountry": "US"
+    },
+    "email": "info@rentar.com",
+    "sameAs": ["https://www.linkedin.com/company/rentar-environmental-solutions"]
+  }
+  </script>
+
 </head>
 <body>
   <header class="header">
