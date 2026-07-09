@@ -1,0 +1,90 @@
+---
+// src/layouts/BaseLayout.astro
+const { title, description } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <link rel="stylesheet" href="/src/styles/global.css">
+</head>
+<body>
+  <header class="header">
+    <a href="/" class="header-logo">RENTAR</a>
+    <nav>
+      <ul class="header-nav">
+        <li><a href="#technology">Technology</a></li>
+        <li><a href="#industries">Industries</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#ip">IP &amp; Distribution</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-utils">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#C4D82E" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <span class="lang">EN ▾</span>
+    </div>
+  </header>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer class="footer" id="contact">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="/" class="footer-logo">RENTAR</a>
+        <p style="font-size:0.85rem; margin-bottom:12px;">Rentar<sup style="font-size:0.55em;">®</sup> Environmental Solutions, Inc.<br>515 N. Flagler Drive, Suite 350<br>West Palm Beach, FL 33401 USA</p>
+        <p style="font-size:0.85rem;"><a href="mailto:info@rentar.com">info@rentar.com</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Technology</h4>
+        <ul>
+          <li><a href="#">Rentar Fuel Catalyst</a></li>
+          <li><a href="#">Monitoring &amp; Telemetry</a></li>
+          <li><a href="#">Fuel Flow Measurement</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Industries</h4>
+        <ul>
+          <li><a href="#">Mining</a></li>
+          <li><a href="#">Marine</a></li>
+          <li><a href="#">Oil &amp; Gas</a></li>
+          <li><a href="#">Agriculture</a></li>
+          <li><a href="#">Power Generation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Rentar</a></li>
+          <li><a href="#">Technology &amp; Patents</a></li>
+          <li><a href="#">Authorized Distributors</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="#">Contact sales</a></li>
+          <li><a href="#">Request a demo</a></li>
+          <li><a href="#">Support</a></li>
+          <li><a href="#">Office locations</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Rentar<sup style="font-size:0.55em;">®</sup> Environmental Solutions, Inc. All rights reserved.</span>
+      <span>
+        <a href="#" style="color:rgba(255,255,255,0.35); text-decoration:none; margin-left:24px;">Privacy Policy</a>
+        <a href="#" style="color:rgba(255,255,255,0.35); text-decoration:none; margin-left:24px;">Terms of Use</a>
+        <a href="#" style="color:rgba(255,255,255,0.35); text-decoration:none; margin-left:24px;">Intellectual Property</a>
+      </span>
+    </div>
+  </footer>
+</body>
+</html>
