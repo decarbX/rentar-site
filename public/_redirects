@@ -1,6 +1,8 @@
 # Rentar — Production Redirect Rules
 # Cloudflare Pages _redirects
+# All alternate hostnames → canonical https://rentar.net
+# HTTP→HTTPS handled by Cloudflare Always Use HTTPS at zone level
 
-# Permanent redirect: www → apex (preserve path)
 https://www.rentar.net/*  https://rentar.net/:splat  301!
-https://www.rentar.com/*  https://rentar.com/:splat  301!
+https://rentar.com/*     https://rentar.net/:splat  301!
+https://www.rentar.com/* https://rentar.net/:splat  301!
