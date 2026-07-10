@@ -3,6 +3,7 @@
 import '../styles/global.css';
 const { title, description } = Astro.props;
 const siteUrl = 'https://rentar.net';
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -12,14 +13,15 @@ const siteUrl = 'https://rentar.net';
   <title>{title}</title>
   <meta name="description" content={description}>
   <meta name="robots" content="index, follow, max-image-preview:large">
-  <link rel="canonical" href={siteUrl}>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="canonical" href={canonicalUrl}>
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Rentar Environmental Solutions">
   <meta property="og:title" content={title}>
   <meta property="og:description" content={description}>
-  <meta property="og:url" content={siteUrl}>
+  <meta property="og:url" content={canonicalUrl}>
   <meta property="og:image" content={`${siteUrl}/images/rentar-og.jpg`}>
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -120,7 +122,7 @@ const siteUrl = 'https://rentar.net';
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2026 Rentar<sup style="font-size:0.55em;">®</sup> Environmental Solutions, Inc. All rights reserved.</span>
+      <span>&copy; 2026 Rentar Environmental Solutions, Inc. All rights reserved.</span>
       <span>
         <a href="#" style="color:rgba(255,255,255,0.35); text-decoration:none; margin-left:24px;">Privacy Policy</a>
         <a href="#" style="color:rgba(255,255,255,0.35); text-decoration:none; margin-left:24px;">Terms of Use</a>

@@ -1,0 +1,6 @@
+# Rentar — Production Redirect Rules
+# Cloudflare Pages _redirects
+
+# Permanent redirect: www → apex (preserve path)
+https://www.rentar.net/*  https://rentar.net/:splat  301!
+https://www.rentar.com/*  https://rentar.com/:splat  301!

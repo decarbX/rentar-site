@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0e17"/>
+      <stop offset="50%" stop-color="#0d1525"/>
+      <stop offset="100%" stop-color="#0a0e17"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00a86b" stop-opacity="0"/>
+      <stop offset="30%" stop-color="#00a86b" stop-opacity="0.08"/>
+      <stop offset="50%" stop-color="#00d4ff" stop-opacity="0.12"/>
+      <stop offset="70%" stop-color="#00a86b" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#00a86b" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#00d4ff" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="#00a86b" stop-opacity="0.06"/>
+    </linearGradient>
+    <radialGradient id="node" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00d4ff" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#00d4ff" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#00d4ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1500" height="500" fill="url(#bg)"/>
+  <rect width="1500" height="500" fill="url(#accent)"/>
+  <rect width="1500" height="500" fill="url(#glow)"/>
+
+  <!-- Grid lines (subtle) -->
+  <g stroke="#1a2a3a" stroke-width="0.5" opacity="0.4">
+    <line x1="0" y1="125" x2="1500" y2="125"/>
+    <line x1="0" y1="250" x2="1500" y2="250"/>
+    <line x1="0" y1="375" x2="1500" y2="375"/>
+    <line x1="250" y1="0" x2="250" y2="500"/>
+    <line x1="500" y1="0" x2="500" y2="500"/>
+    <line x1="750" y1="0" x2="750" y2="500"/>
+    <line x1="1000" y1="0" x2="1000" y2="500"/>
+    <line x1="1250" y1="0" x2="1250" y2="500"/>
+  </g>
+
+  <!-- Data flow lines -->
+  <g fill="none" stroke-width="1" opacity="0.3">
+    <path d="M0,350 Q200,340 350,280 Q500,220 650,260 Q800,300 950,200 Q1100,100 1250,180 Q1400,260 1500,240" stroke="#00d4ff" stroke-dasharray="4,8"/>
+    <path d="M0,150 Q250,170 400,220 Q550,270 700,180 Q850,90 1000,160 Q1150,230 1300,170 Q1450,110 1500,130" stroke="#00a86b" stroke-dasharray="2,6"/>
+    <path d="M0,420 Q300,400 500,440 Q700,480 900,380 Q1100,280 1300,360 Q1400,400 1500,370" stroke="#00d4ff" stroke-dasharray="1,5" opacity="0.2"/>
+  </g>
+
+  <!-- Network nodes -->
+  <g>
+    <circle cx="200" cy="280" r="3" fill="#00d4ff" opacity="0.6"/>
+    <circle cx="500" cy="220" r="4" fill="#00a86b" opacity="0.5"/>
+    <circle cx="750" cy="180" r="3" fill="#00d4ff" opacity="0.7"/>
+    <circle cx="950" cy="160" r="4" fill="#00a86b" opacity="0.5"/>
+    <circle cx="1200" cy="180" r="3" fill="#00d4ff" opacity="0.6"/>
+    <circle cx="350" cy="380" r="2" fill="#00d4ff" opacity="0.4"/>
+    <circle cx="700" cy="340" r="2" fill="#00a86b" opacity="0.4"/>
+    <circle cx="1050" cy="300" r="3" fill="#00d4ff" opacity="0.5"/>
+    <circle cx="1400" cy="280" r="2" fill="#00a86b" opacity="0.4"/>
+  </g>
+
+  <!-- Pulsing node glow -->
+  <circle cx="750" cy="180" r="40" fill="url(#node)" opacity="0.15"/>
+  <circle cx="500" cy="220" r="30" fill="url(#node)" opacity="0.1"/>
+
+  <!-- "decarbX" typographic mark (large, right-aligned) -->
+  <text x="1150" y="300" font-family="system-ui, -apple-system, sans-serif" font-size="120" font-weight="700" fill="#ffffff" opacity="0.04" text-anchor="end" letter-spacing="8">decarbX</text>
+
+  <!-- Small bottom-left label -->
+  <text x="60" y="460" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" fill="#4a5a6a" letter-spacing="3">FUEL EFFICIENCY &amp; EMISSIONS INTELLIGENCE</text>
+
+  <!-- Thin accent bars -->
+  <rect x="60" y="60" width="120" height="1" fill="#00d4ff" opacity="0.3"/>
+  <rect x="60" y="66" width="60" height="1" fill="#00a86b" opacity="0.5"/>
+</svg>
