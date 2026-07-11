@@ -1,0 +1,75 @@
+---
+import BaseLayout from './BaseLayout.astro';
+const { title, description, heroTitle, heroSubtitle, applications, results, resultUrl } = Astro.props;
+---
+<BaseLayout title={title} description={description}>
+  <section class="hero" style="min-height:50vh;">
+    <div class="hero-content">
+      <p class="hero-tag">Industry Application</p>
+      <h1 style="font-size:2.8rem;">{heroTitle}</h1>
+      <p>{heroSubtitle}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-narrow">
+      <p class="section-label">Overview</p>
+      <h2 class="section-title">Rentar Fuel Catalyst in {heroTitle}</h2>
+      <div class="manifesto-block">
+        <p>The Rentar Fuel Catalyst is deployed in {heroTitle.toLowerCase()} operations worldwide, delivering measurable fuel efficiency improvements and emissions reductions across heavy-duty diesel equipment. The passive in-line catalyst requires no moving parts, no electronics, and no maintenance — installing directly into the fuel line upstream of the engine.</p>
+        <p>In {heroTitle.toLowerCase()} applications, fuel represents one of the largest operational costs. The Rentar Fuel Catalyst conditions fuel at the molecular level to improve combustion efficiency, reducing fuel consumption and associated greenhouse gas emissions without changing engine performance characteristics.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-light">
+    <div class="container">
+      <p class="section-label">Applications</p>
+      <h2 class="section-title">Where the catalyst delivers results</h2>
+      <div class="card-grid">
+        {applications.map((app: string) => (
+          <div class="card">
+            <div class="card-body">
+              <h3 class="card-title">{app}</h3>
+              <p class="card-text">Proven fuel efficiency improvement in {app.toLowerCase()} operations with the Rentar Fuel Catalyst.</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {results && results.length > 0 && (
+    <section class="section">
+      <div class="container-narrow">
+        <p class="section-label">Measurable Performance</p>
+        <h2 class="section-title">Fuel efficiency verified in the field</h2>
+        <div class="manifesto-block">
+          <p>Independent testing and customer deployments have validated fuel efficiency improvements in {heroTitle.toLowerCase()} applications. Results are application-specific and depend on equipment type, duty cycle, fuel quality, and operating conditions.</p>
+          <ul style="list-style:none; padding-left:0;">
+            {results.map((r: any) => (
+              <li style="padding:12px 0; border-bottom:1px solid #eee; display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-weight:500; color:var(--navy);">{r.label}</span>
+                <span style="font-size:1.2rem; font-weight:300; color:var(--navy);">{r.value}</span>
+              </li>
+            ))}
+          </ul>
+          {resultUrl && (
+            <div style="margin-top:32px;">
+              <a href={resultUrl} class="btn btn-outline">View case study</a>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="section" style="background:var(--navy); text-align:center;">
+    <div class="container-narrow">
+      <p class="section-label" style="color:rgba(255,255,255,0.5);">Get in touch</p>
+      <h2 class="section-title" style="color:var(--white);">Deploy the Rentar Fuel Catalyst in your {heroTitle.toLowerCase()} operations</h2>
+      <p class="section-text" style="color:rgba(255,255,255,0.7); margin-bottom:40px;">Our engineering team will evaluate your fleet, model expected fuel savings, and design a proof-of-concept deployment for your specific {heroTitle.toLowerCase()} application.</p>
+      <a href="/contact" class="btn btn-primary">Contact sales</a>
+    </div>
+  </section>
+</BaseLayout>
