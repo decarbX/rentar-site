@@ -1,0 +1,75 @@
+---
+import EspanolLayout from './EspanolLayout.astro';
+const { title, description, heroTitle, heroSubtitle, applications, results, resultUrl } = Astro.props;
+---
+<EspanolLayout title={title} description={description}>
+  <section class="hero" style="min-height:50vh;">
+    <div class="hero-content">
+      <p class="hero-tag">Aplicación Industrial</p>
+      <h1 style="font-size:2.8rem;">{heroTitle}</h1>
+      <p>{heroSubtitle}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-narrow">
+      <p class="section-label">Descripción General</p>
+      <h2 class="section-title">Catalizador de Combustible Rentar en {heroTitle}</h2>
+      <div class="manifesto-block">
+        <p>El Catalizador de Combustible Rentar está implementado en operaciones de {heroTitle.toLowerCase()} en todo el mundo, proporcionando mejoras significativas en la eficiencia de combustible y reducciones de emisiones en equipos diésel de servicio pesado. El catalizador pasivo en línea no requiere piezas móviles, ni electrónica, ni mantenimiento — se instala directamente en la línea de combustible antes del motor.</p>
+        <p>En aplicaciones de {heroTitle.toLowerCase()}, el combustible representa uno de los mayores costos operativos. El Catalizador de Combustible Rentar acondiciona el combustible a nivel molecular para mejorar la eficiencia de combustión, reduciendo el consumo de combustible y las emisiones de gases de efecto invernadero asociadas sin alterar las características de rendimiento del motor.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-light">
+    <div class="container">
+      <p class="section-label">Aplicaciones</p>
+      <h2 class="section-title">Donde el catalizador entrega resultados</h2>
+      <div class="card-grid">
+        {applications.map((app: string) => (
+          <div class="card">
+            <div class="card-body">
+              <h3 class="card-title">{app}</h3>
+              <p class="card-text">Mejora significativa de eficiencia de combustible comprobada en operaciones de {app.toLowerCase()} con el Catalizador de Combustible Rentar.</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {results && results.length > 0 && (
+    <section class="section">
+      <div class="container-narrow">
+        <p class="section-label">Rendimiento Medible</p>
+        <h2 class="section-title">Eficiencia de combustible verificada en campo</h2>
+        <div class="manifesto-block">
+          <p>Pruebas independientes y despliegues con clientes han validado mejoras significativas en la eficiencia de combustible en aplicaciones de {heroTitle.toLowerCase()}. Los resultados son específicos de cada aplicación y dependen del tipo de equipo, ciclo de trabajo, calidad del combustible y condiciones operativas.</p>
+          <ul style="list-style:none; padding-left:0;">
+            {results.map((r: any) => (
+              <li style="padding:12px 0; border-bottom:1px solid #eee; display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-weight:500; color:var(--navy);">{r.label}</span>
+                <span style="font-size:1.2rem; font-weight:300; color:var(--navy);">{r.value}</span>
+              </li>
+            ))}
+          </ul>
+          {resultUrl && (
+            <div style="margin-top:32px;">
+              <a href={resultUrl} class="btn btn-outline">Ver caso de estudio</a>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="section" style="background:var(--navy); text-align:center;">
+    <div class="container-narrow">
+      <p class="section-label" style="color:rgba(255,255,255,0.5);">Contáctenos</p>
+      <h2 class="section-title" style="color:var(--white);">Implemente el Catalizador Rentar en sus operaciones de {heroTitle.toLowerCase()}</h2>
+      <p class="section-text" style="color:rgba(255,255,255,0.7); margin-bottom:40px;">Nuestro equipo de ingeniería evaluará su flota, modelará los ahorros de combustible esperados y diseñará una prueba de concepto para su aplicación específica en {heroTitle.toLowerCase()}.</p>
+      <a href="/es/contacto" class="btn btn-primary">Contactar ventas</a>
+    </div>
+  </section>
+</EspanolLayout>

@@ -1,0 +1,140 @@
+---
+// src/layouts/EspanolLayout.astro
+import '../styles/global.css';
+const { title, description } = Astro.props;
+const siteUrl = 'https://rentar.net';
+// Compute English alternate URL by stripping /es prefix
+const path = Astro.url.pathname;
+const enPath = path.startsWith('/es/') ? path.slice(3) : '/';
+const canonicalPath = path.endsWith('/') ? path : path + '/';
+const canonicalUrl = new URL(canonicalPath, siteUrl).href;
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="canonical" href={canonicalUrl}>
+  <link rel="alternate" hreflang="en" href={new URL(enPath, siteUrl).href}>
+  <link rel="alternate" hreflang="es" href={canonicalUrl}>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Rentar Environmental Solutions">
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:url" content={canonicalUrl}>
+  <meta property="og:image" content={`${siteUrl}/images/rentar-og.jpg`}>
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:locale:alternate" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content={title}>
+  <meta name="twitter:description" content={description}>
+  <meta name="twitter:image" content={`${siteUrl}/images/rentar-og.jpg`}>
+
+  <!-- Structured Data: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Rentar Environmental Solutions, Inc.",
+    "url": "https://rentar.net",
+    "description": "Titular exclusivo de los derechos comerciales mundiales del Catalizador de Combustible Rentar. Tecnología patentada de catalizador de combustible implementada en minería, marina, agricultura, petróleo y gas, generación de energía y transporte pesado.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "515 N. Flagler Drive, Suite 350",
+      "addressLocality": "West Palm Beach",
+      "addressRegion": "FL",
+      "postalCode": "33401",
+      "addressCountry": "US"
+    },
+    "email": "info@rentar.com",
+    "sameAs": ["https://www.linkedin.com/company/rentar-environmental-solutions"]
+  }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <a href="/es" class="header-logo">RENTAR</a>
+    <nav>
+      <ul class="header-nav">
+        <li><a href="/es#tecnologia">Tecnología</a></li>
+        <li><a href="/es#industrias">Industrias</a></li>
+        <li><a href="/es#resultados">Resultados</a></li>
+        <li><a href="/es#pi">PI y Distribución</a></li>
+        <li><a href="/es#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+    <div class="header-utils">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#C4D82E" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <a href={enPath || '/'} class="lang" style="text-decoration:none; color:var(--green);">EN</a>
+    </div>
+  </header>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer class="footer" id="contacto">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="/es" class="footer-logo">RENTAR</a>
+        <p style="font-size:0.85rem; margin-bottom:12px;">Rentar<sup style="font-size:0.55em;">®</sup> Environmental Solutions, Inc.<br>515 N. Flagler Drive, Suite 350<br>West Palm Beach, FL 33401 EE. UU.</p>
+        <p style="font-size:0.85rem;"><a href="mailto:info@rentar.com">info@rentar.com</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Tecnología</h4>
+        <ul>
+          <li><a href="/es/tecnologia">Catalizador Rentar</a></li>
+          <li><a href="/es/tecnologia">Monitoreo y Telemetría</a></li>
+          <li><a href="/es/tecnologia">Medición de Flujo</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Industrias</h4>
+        <ul>
+          <li><a href="/es/industrias/mineria">Minería</a></li>
+          <li><a href="/es/industrias/maritima">Marítima</a></li>
+          <li><a href="/es/industrias/petroleo-gas">Petróleo y Gas</a></li>
+          <li><a href="/es/industrias/agricultura">Agricultura</a></li>
+          <li><a href="/es/industrias/generacion-energia">Generación de Energía</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="/es/acerca">Acerca de Rentar</a></li>
+          <li><a href="/es/tecnologia">Tecnología y Patentes</a></li>
+          <li><a href="/es/distribuidores-autorizados">Distribuidores Autorizados</a></li>
+          <li><a href="/es/carreras">Carreras</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="/es/contacto">Contactar ventas</a></li>
+          <li><a href="/es/contacto">Solicitar demo</a></li>
+          <li><a href="/es/soporte">Soporte</a></li>
+          <li><a href="/es/ubicaciones">Oficinas</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Rentar Environmental Solutions, Inc. Todos los derechos reservados.</span>
+      <span>
+        <a href="/es/privacidad" style="color:rgba(255,255,255,0.35); text-decoration:none; margin-left:24px;">Política de Privacidad</a>
+        <a href="/es/terminos" style="color:rgba(255,255,255,0.35); text-decoration:none; margin-left:24px;">Términos de Uso</a>
+        <a href="/es/propiedad-intelectual" style="color:rgba(255,255,255,0.35); text-decoration:none; margin-left:24px;">Propiedad Intelectual</a>
+      </span>
+    </div>
+  </footer>
+</body>
+</html>
